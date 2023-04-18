@@ -1,0 +1,21 @@
+---
+  - name: create index.html file
+    hosts: 10.118.0.3
+    tasks:
+      - name: adding index.html
+        file:
+          path: /usr/share/nginx/html/index.html
+          state: touch
+      - name: copy file
+        copy: 
+          dest: /usr/share/nginx/html/index.html
+          content: 
+            <!DOCTYPE html>
+            <html>
+            <body>
+
+            <h1>My Awesome Web Page!</h1>
+            <p>It worked.</p>
+
+            </body>
+            </html>
