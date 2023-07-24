@@ -1,0 +1,18 @@
+---
+  - name: create file and add lines
+    hosts: 10.116.0.3
+    tasks:
+        
+      - name: add lines to file
+        blockinfile:
+          path: /usr/share/nginx/html/index.html
+          block: |
+            <!DOCTYPE html>
+            <html>
+            <body>
+
+            <h1>My Awesome Web Page!</h1>
+            <p>It worked.</p>
+
+            </body>
+            </html>

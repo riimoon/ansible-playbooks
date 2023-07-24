@@ -1,0 +1,26 @@
+---
+  - name: Install, start, enable ngnix
+    hosts: 10.116.0.3
+
+    tasks: 
+      - name: Install ngnix
+        become: true
+        package: 
+          name: nginx
+          state: present 
+
+      - name: Start ngnix
+        become: true
+        service:
+          name: nginx
+          state: started
+
+      - name: Enable ngnix at boot
+        become: true
+        service:
+          name: nginx
+          enabled: yes
+
+#first you need to add ur id_rsa.pub to ur dogotalocean account!
+#after run vi /etc/ansible/hosts and add your privat IP addres
+#run ansible ....(your private ip) -m ping
